@@ -1,6 +1,6 @@
 import { Item, PageInfo } from './search-item.model';
 
-export interface Response {
+export interface IResponse {
   kind: string;
   etag: string;
   pageInfo: PageInfo;

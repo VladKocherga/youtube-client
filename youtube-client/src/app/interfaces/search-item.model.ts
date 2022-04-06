@@ -1,68 +1,53 @@
+export interface PageInfo {
+  totalResults: number;
+  resultsPerPage: number;
+}
+
 export interface Item {
-  kind: Kind;
+  kind: string;
   etag: string;
   id: string;
-  snippet: Snippet;
-  statistics: Statistics;
+  snippet: ISnippet;
+  statistics: IStatistics;
 }
 
-export enum Kind {
-  YoutubeVideo = 'youtube#video',
-}
-
-export interface Snippet {
-  publishedAt: Date;
+export interface ISnippet {
+  publishedAt: string;
   channelId: string;
   title: string;
   description: string;
-  thumbnails: Thumbnails;
+  thumbnails: IThumbnails;
   channelTitle: string;
   tags: string[];
   categoryId: string;
-  liveBroadcastContent: LiveBroadcastContent;
-  localized: Localized;
-  defaultAudioLanguage: DefaultLanguage;
-  defaultLanguage?: DefaultLanguage;
+  liveBroadcastContent: string;
+  localized: ILocalized;
+  defaultAudioLanguage: string;
 }
 
-export enum DefaultLanguage {
-  En = 'en',
-  EnUS = 'en-US',
-  Ru = 'ru',
+export interface IThumbnails {
+  default: IThumbnailsItem;
+  medium: IThumbnailsItem;
+  high: IThumbnailsItem;
+  standard: IThumbnailsItem;
+  maxres: IThumbnailsItem;
 }
 
-export enum LiveBroadcastContent {
-  None = 'none',
-}
-
-export interface Localized {
-  title: string;
-  description: string;
-}
-
-export interface Thumbnails {
-  default: Default;
-  medium: Default;
-  high: Default;
-  standard: Default;
-  maxres: Default;
-}
-
-export interface Default {
+export interface IThumbnailsItem {
   url: string;
   width: number;
   height: number;
 }
 
-export interface Statistics {
+export interface ILocalized {
+  title: string;
+  description: string;
+}
+
+export interface IStatistics {
   viewCount: string;
   likeCount: string;
   dislikeCount: string;
   favoriteCount: string;
   commentCount: string;
-}
-
-export interface PageInfo {
-  totalResults: number;
-  resultsPerPage: number;
 }

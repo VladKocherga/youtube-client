@@ -2,7 +2,7 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": true,
     },
     "editor.formatOnSave": false
   },
@@ -13,6 +13,5 @@
     },
     "editor.formatOnSave": false
   },
-},
-"editor.suggest.snippetsPreventQuickSuggestions": false,
-"editor.inlineSuggest.enabled": true
+  "html.format.wrapAttributes": "force"
+}

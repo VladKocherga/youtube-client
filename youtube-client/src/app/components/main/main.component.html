@@ -1,0 +1,11 @@
+<div class="search-container" *ngIf="isVisibleContainer">
+  <div
+    class="youtube-item"
+    *ngFor="
+      let i of data
+        | keywordFilter: setWordsCriteria()
+        | dateFilter: sortByCriteria()"
+  >
+    <app-search-item class="search-container" [item]="i"></app-search-item>
+  </div>
+</div>
