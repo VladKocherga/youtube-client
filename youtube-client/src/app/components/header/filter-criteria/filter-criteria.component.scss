@@ -1,0 +1,29 @@
+.criteria-filter {
+  border-radius: 25px;
+  border: none;
+  color: #2f80ed;
+  font-weight: bold;
+  animation-name: show;
+  animation-duration: 1s;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0,5s;
+  }
+}
+
+.criteria-search {
+  border-radius: 25px;
+  padding: 5px 0px 5px 0px;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
