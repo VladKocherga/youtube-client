@@ -11,7 +11,6 @@ import {
   MILLISECONDS_IN_DAY,
 } from 'src/app/constants/constant';
 import { Item } from 'src/app/interfaces/search-item.model';
-import DataService from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-search-item',
@@ -20,11 +19,9 @@ import DataService from 'src/app/services/data.service';
 })
 export default class SearchItemComponent implements AfterViewChecked {
   @ViewChild('youtubeCard', { static: false })
-  youtubeCard: ElementRef = { nativeElement: '' };
+  public youtubeCard: ElementRef = { nativeElement: '' };
 
   @Input() item!: Item;
-
-  constructor(private service: DataService) {}
 
   public ngAfterViewChecked() {
     const publicationDate: string = this.item?.snippet.publishedAt;

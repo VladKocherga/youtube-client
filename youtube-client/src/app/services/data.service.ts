@@ -8,7 +8,7 @@ import { IResponse } from '../interfaces/search-response.model';
   providedIn: 'root',
 })
 export default class DataService {
-  private data: Promise<Item[]> = this.getData();
+  private videosData: Promise<Item[]> = this.getData();
 
   private search: BehaviorSubject<string> = new BehaviorSubject('');
 
@@ -25,22 +25,22 @@ export default class DataService {
   public currentSortCriteria: Observable<string> =
     this.sortCriteria.asObservable();
 
-  public getSearchWord(word: string): void {
+  public setSearchWord(word: string): void {
     this.search.next(word);
   }
 
-  public getSortCriteria(criteria: string): void {
+  public setSortCriteria(criteria: string): void {
     this.sortCriteria.next(criteria);
   }
 
-  public getVideoContainerVisible(visible: boolean): void {
+  public setVideoContainerVisible(visible: boolean): void {
     this.isVideoContainer.next(visible);
   }
 
-  public async getData(): Promise<Item[]> {
-    this.data = fetch(`${SERVER_LINK}`)
+  public getData(): Promise<Item[]> {
+    this.videosData = fetch(`${SERVER_LINK}`)
       .then((response: Response) => response.json())
       .then((data: IResponse) => data.items);
-    return this.data;
+    return this.videosData;
   }
 }

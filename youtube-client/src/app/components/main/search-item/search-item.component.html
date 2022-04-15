@@ -10,7 +10,7 @@
         class="img-views"
         src="../../../../assets/svg/viewed.svg"
         alt="views"
-       />
+      />
       <p class="views-count">{{ item ? item.statistics.viewCount : 'err' }}</p>
     </div>
     <div class="likes">
@@ -26,7 +26,7 @@
         src="../../../../assets/svg/dislike.svg"
         alt="dislike"
         class="img-dislikes"
-       />
+      />
       <p class="dislikes-count">
         {{ item ? item.statistics.dislikeCount : '' }}
       </p>
@@ -43,5 +43,5 @@
     </div>
   </div>
   <div class="title-video">{{ item ? item.snippet.title : '' }}</div>
-  <button class="btn-more">more</button>
+  <button class="btn-more" [routerLink]="['/details', item?.id]">more</button>
 </div>

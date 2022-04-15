@@ -7,8 +7,6 @@ export const enum DAYS {
 export const SERVER_LINK =
   'https://raw.githubusercontent.com/rolling-scopes-school/tasks/master/tasks/angular/response.json';
 
-export const MILLISECONDS_IN_DAY: number = 86400000;
-
 export const enum BORDERCOLOR {
   red = 'red',
   green = 'green',
@@ -17,5 +15,5 @@ export const enum BORDERCOLOR {
 }
 
 export const DIRECT_SORT_MULTIPLIER: number = 1;
-
 export const REVERSE_SORT_MULTIPLIER: number = -1;
+export const MILLISECONDS_IN_DAY: number = 86400000;

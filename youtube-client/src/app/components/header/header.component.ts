@@ -9,9 +9,9 @@ import DataService from 'src/app/services/data.service';
 export default class HeaderComponent {
   public isVisibleFilterContainer: boolean = false;
 
-  constructor(private service: DataService) {}
+  constructor(private dataservice: DataService) {}
 
-  public switchVisibleVideoContainer(isVisible: boolean) {
-    this.service.getVideoContainerVisible(isVisible);
+  public toggleContainerVisibility(isVisible: boolean) {
+    this.dataservice.setVideoContainerVisible(isVisible);
   }
 }

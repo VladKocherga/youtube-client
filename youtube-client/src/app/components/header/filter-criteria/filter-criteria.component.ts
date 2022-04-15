@@ -10,7 +10,7 @@ export default class FilterCriteriaComponent {
   constructor(private service: DataService) {}
 
   public set getSearch(word: string) {
-    this.service.getSearchWord(word);
+    this.service.setSearchWord(word);
   }
 
   public setSortCriteria(criteriaSort: string): void {
@@ -22,6 +22,6 @@ export default class FilterCriteriaComponent {
     if (criteriaSort === currentSortCriteria) {
       resultCriteriaSort = resultCriteriaSort.replace(/Min/gi, 'Max');
     }
-    this.service.getSortCriteria(resultCriteriaSort);
+    this.service.setSortCriteria(resultCriteriaSort);
   }
 }

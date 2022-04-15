@@ -35,7 +35,9 @@
       }
     },
     {
-      "files": ["*.html"],
+      "files": [
+        "*.html"
+      ],
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ]

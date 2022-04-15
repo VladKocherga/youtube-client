@@ -1,0 +1,55 @@
+<div class="details-wrapper">
+  <img
+    src="../../../assets/svg/back.svg"
+    routerLink="/"
+    alt="back"
+    class="arrow-left"
+  />
+  <div class="details-container" #detailsContainer>
+    <div class = "arrow">
+      <img
+        src="{{
+          currentItem ? currentItem.snippet.thumbnails.standard.url : ''
+        }}"
+        alt="img"
+        class="preview-img"
+      />
+    </div>
+    <div class="about-video">
+      <div class="about-video-wrapper">
+        <div class="title-container">
+          <div class="details-title">
+            {{ currentItem ? currentItem.snippet.title : 'err' }}
+          </div>
+          <div class="details-date-publishing">
+            {{
+              currentItem
+                ? (currentItem!.snippet.publishedAt | date: 'fullDate')
+                : ''
+            }}
+          </div>
+        </div>
+        <div class="details-description">
+          <h2 class="description-title">Description:</h2>
+          <p class="description-text">
+            {{ currentItem ? currentItem.snippet.description : 'err' }}
+          </p>
+        </div>
+        <div class="video-statistics">
+          <div class="views">
+            {{ currentItem ? currentItem.statistics.viewCount : 'err' }}
+          </div>
+          <div class="likes">
+            {{ currentItem ? currentItem.statistics.likeCount : 'err' }}
+          </div>
+          <div class="dislikes">
+            {{ currentItem ? currentItem.statistics.dislikeCount : 'err' }}
+          </div>
+          <div class="comments">
+            {{ currentItem ? currentItem.statistics.commentCount : 'err' }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

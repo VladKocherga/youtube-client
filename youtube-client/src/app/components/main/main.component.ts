@@ -12,20 +12,22 @@ export default class SearchComponent {
 
   public isVisibleContainer: boolean = false;
 
-  constructor(private service: DataService) {
-    this.service.currentContainerVisible.subscribe((value: boolean): void => {
-      this.isVisibleContainer = value;
-    });
+  constructor(private dataService: DataService) {
+    this.dataService.currentContainerVisible.subscribe(
+      (value: boolean): void => {
+        this.isVisibleContainer = value;
+      }
+    );
     this.getData();
   }
 
   public async getData(): Promise<void> {
-    this.data = await this.service.getData();
+    this.data = await this.dataService.getData();
   }
 
   public setWordsCriteria(): string {
     let search: string = '';
-    this.service.currentSearch.subscribe((searchValue: string): void => {
+    this.dataService.currentSearch.subscribe((searchValue: string): void => {
       search = searchValue;
     });
     return search;
@@ -33,9 +35,11 @@ export default class SearchComponent {
 
   public sortByCriteria(): string {
     let criteria: string = '';
-    this.service.currentSortCriteria.subscribe((sortCriteria: string): void => {
-      criteria = sortCriteria;
-    });
+    this.dataService.currentSortCriteria.subscribe(
+      (sortCriteria: string): void => {
+        criteria = sortCriteria;
+      }
+    );
     return criteria;
   }
 }

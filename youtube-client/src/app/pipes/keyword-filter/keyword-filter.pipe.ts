@@ -13,7 +13,7 @@ export default class KeywordFilterPipe implements PipeTransform {
       return data;
     }
     return data.filter(
-      (el: Item) =>
+      (el: Item): boolean =>
         el.snippet.title.toLowerCase().indexOf(wordFilter.toLowerCase()) !== -1
     );
   }
