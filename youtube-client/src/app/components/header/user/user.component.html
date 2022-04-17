@@ -1,0 +1,11 @@
+<div class="person-container">
+  <p class="person-name">Your name</p>
+  <img src="../../../../assets/svg/login.svg" alt="login" />
+  <img
+    *ngIf="this.authService.verificateLogin()"
+    alt="logout"
+    class="logout"
+    (click)="this.authService.logout()"
+    src="../../../../assets/svg/logout.svg"
+  />
+</div>
