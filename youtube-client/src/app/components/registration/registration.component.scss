@@ -1,6 +1,6 @@
 .auth-wrapper {
   width: 700px;
-  height: 500px;
+  height: 800px;
   background-color: grey;
   margin: 50px auto;
 
@@ -30,13 +30,17 @@
 
     .auth-title {
       font-size: 42px;
-      line-height: 50px;
+      line-height: 0px;
     }
 
     .login-text {
-      line-height: 100px;
+      line-height: 50px;
       font-size: 22px;
       color: black;
+
+      &:first-child {
+        line-height: 110px;
+      }
     }
 
     .login-input {
@@ -55,14 +59,14 @@
   border-left: 5px solid red;
 }
 
+.warning-container-mail {
+  position: relative;
+}
+
 .warning-form {
   color: rgb(165, 33, 33);
   float: right;
   position: absolute;
   top: -40px;
   right: 0px;
-}
-
-.warning-container-mail {
-  position: relative;
 }

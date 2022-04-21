@@ -1,6 +1,6 @@
 .auth-wrapper {
   width: 700px;
-  height: 500px;
+  height: 700px;
   background-color: grey;
   margin: 50px auto;
 
@@ -30,11 +30,11 @@
 
     .auth-title {
       font-size: 42px;
-      line-height: 50px;
+      line-height: 150px;
     }
 
     .login-text {
-      line-height: 100px;
+      line-height: 50px;
       font-size: 22px;
       color: black;
     }
@@ -59,8 +59,14 @@
   color: rgb(165, 33, 33);
   float: right;
   position: absolute;
-  top: -40px;
+  top: -23px;
   right: 0px;
+}
+
+.card-create {
+  width: 100px;
+  color: greenyellow;
+  margin: 10px auto;
 }
 
 .warning-container-mail {

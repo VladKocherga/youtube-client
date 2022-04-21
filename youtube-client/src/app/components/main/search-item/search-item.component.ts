@@ -23,7 +23,7 @@ export default class SearchItemComponent implements AfterViewChecked {
 
   @Input() item!: Item;
 
-  public ngAfterViewChecked() {
+  public ngAfterViewChecked(): void {
     const publicationDate: string = this.item?.snippet.publishedAt;
     const dayAfterPublishing: number =
       (Date.now() - new Date(publicationDate).valueOf()) / MILLISECONDS_IN_DAY;

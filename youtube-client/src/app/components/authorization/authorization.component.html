@@ -1,10 +1,71 @@
 <div class="auth-wrapper">
-  <div class="auth-container">
-    <h2 class="auth-title">Login</h2>
-    <p class="login-text">Login</p>
-    <input type="text" class="login-input" />
-    <p class="login-text">Password</p>
-    <input type="password" class="login-input" />
-  </div>
-  <button class="submit-login" (click)="switchAuthorization()">Login</button>
+  <form
+    [formGroup]="authorizationForm"
+    (ngSubmit)="login({
+        mail: authorizationForm.get('mail')?.value,
+        password: authorizationForm.get('password')?.value
+    })"
+  >
+    <div class="auth-container">
+      <h2 class="auth-title">Login</h2>
+      <fieldset>
+        <legend class="login-text">Login</legend>
+        <div
+          class="warning-container-mail"
+          *ngIf="authorizationForm.get('mail')?.invalid && authorizationForm.get('mail')?.touched"
+        >
+          <p
+            class="warning-form"
+            *ngIf="authorizationForm.get('mail')?.errors?.['required']"
+          >
+            Please, enter a login email
+          </p>
+          <p
+            class="warning-form"
+            *ngIf="authorizationForm.get('mail')?.errors?.['pattern']"
+          >
+            The email is invalid
+          </p>
+        </div>
+        <input
+          type="text"
+          class="login-input"
+          formControlName="mail"
+          [class.is-invalid]="authorizationForm.get('mail')?.touched && authorizationForm.get('mail')?.errors"
+        />
+      </fieldset>
+      <fieldset>
+        <legend class="login-text">Password</legend>
+        <div
+          class="warning-container-mail"
+          *ngIf="authorizationForm.get('password')?.invalid && authorizationForm.get('password')?.touched"
+        >
+          <p
+            class="warning-form"
+            *ngIf="authorizationForm.get('password')?.errors?.['required']"
+          >
+            Please enter a password.
+          </p>
+          <p
+            class="warning-form"
+            *ngIf="authorizationForm.get('password')?.errors?.['pattern']"
+          >
+            Your password isn't strong enough (uppercase and lowercase letters,
+            numbers, inclusion of at least one special character, e.g., ! @ # ?,
+            at least 8 characters)..
+          </p>
+        </div>
+        <input
+          type="password"
+          class="login-input"
+          formControlName="password"
+          [class.is-invalid]="authorizationForm.get('password')?.touched && authorizationForm.get('password')?.errors"
+        />
+      </fieldset>
+    </div>
+    <button type="submit" class="submit-login" (click)="markAsTouched()">
+      Login
+    </button>
+  </form>
+  <button class="submit-login" routerLink="/registration">Go to registration</button>
 </div>

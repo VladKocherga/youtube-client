@@ -1,0 +1,117 @@
+<div class="auth-wrapper">
+  <form
+    [formGroup]="registrationForm"
+    (ngSubmit)="registerPerson({
+        firstName: registrationForm.get('firstName')?.value,
+        lastName: registrationForm.get('lastName')?.value,
+        mail: registrationForm.get('mail')?.value,
+        password: registrationForm.get('password')?.value
+    })"
+  >
+    <div class="auth-container">
+      <h2 class="auth-title">Registration</h2>
+      <fieldset>
+        <legend class="login-text">First name</legend>
+        <div
+          *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched"
+          class="warning-container-mail"
+        >
+          <p
+            *ngIf="registrationForm.get('firstName')?.errors?.['required']"
+            class="warning-form"
+          >
+            Please enter your first name.
+          </p>
+        </div>
+        <input
+          type="text"
+          class="login-input"
+          formControlName="firstName"
+          [class.is-invalid]="registrationForm.get('firstName')?.touched && registrationForm.get('firstName')?.errors"
+        />
+      </fieldset>
+      <fieldset>
+        <legend class="login-text">Last name</legend>
+        <div
+          *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched"
+          class="warning-container-mail"
+        >
+          <p
+            *ngIf="registrationForm.get('lastName')?.errors?.['required']"
+            class="warning-form"
+          >
+            Please enter your last name.
+          </p>
+        </div>
+        <input
+          type="text"
+          class="login-input"
+          formControlName="lastName"
+          [class.is-invalid]="registrationForm.get('lastName')?.touched && registrationForm.get('lastName')?.errors"
+        />
+      </fieldset>
+      <fieldset>
+        <legend class="login-text">Mail</legend>
+        <div
+          *ngIf="registrationForm.get('mail')?.invalid && registrationForm.get('mail')?.touched"
+          class="warning-container-mail"
+        >
+          <p
+            class="warning-form"
+            *ngIf="registrationForm.get('mail')?.errors?.['required']"
+          >
+            Please enter a login email.
+          </p>
+          <p
+            class="warning-form"
+            *ngIf="registrationForm.get('mail')?.errors?.['pattern']"
+          >
+            The login email is invalid.
+          </p>
+        </div>
+        <input
+          type="mail"
+          formControlName="mail"
+          [class.is-invalid]="registrationForm.get('mail')?.touched && registrationForm.get('mail')?.errors"
+          class="login-input"
+        />
+      </fieldset>
+      <fieldset>
+        <legend class="login-text">Password</legend>
+        <div
+          *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched"
+          class="warning-container-mail"
+        >
+          <p
+            class="warning-form"
+            *ngIf="registrationForm.get('password')?.errors?.['required']"
+          >
+            Please enter a password.
+          </p>
+          <p
+            class="warning-form"
+            *ngIf="registrationForm.get('password')?.errors?.['pattern']"
+          >
+            Your password isn't strong enough (uppercase and lowercase letters,
+            numbers, inclusion of at least one special character, e.g., ! @ # ?, at least 8 characters).
+          </p>
+        </div>
+        <input
+          type="password"
+          class="login-input"
+          formControlName="password"
+          [class.is-invalid]="registrationForm.get('password')?.touched && registrationForm.get('password')?.errors"
+        />
+      </fieldset>
+    </div>
+    <button
+      type="submit"
+      class="submit-login"
+      (click)="markAsTouched"
+    >
+      Register
+    </button>
+  </form>
+  <button class="submit-login" routerLink="/authorization">Go to login</button>
+</div>
+

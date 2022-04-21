@@ -33,16 +33,19 @@ $main-color: #2f80ed;
       background: url('../../../assets/svg/logo.svg') center;
       width: 50px;
       height: 50px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .search-video {
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       width: 30%;
       height: 20px;
       border-radius: 25px;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding: 10px;
 
       &:hover {
         opacity: 0.5;

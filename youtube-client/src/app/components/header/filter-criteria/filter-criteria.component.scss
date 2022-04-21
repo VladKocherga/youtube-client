@@ -9,13 +9,13 @@
   &:hover {
     cursor: pointer;
     opacity: 0.8;
-    transition: 0,5s;
+    transition: 0, 5s;
   }
 }
 
 .criteria-search {
   border-radius: 25px;
-  padding: 5px 0px 5px 0px;
+  padding: 10px 10px 10px 10px;
 }
 
 @keyframes show {
@@ -26,4 +26,15 @@
   100% {
     opacity: 1;
   }
+}
+
+.warning-container-mail {
+  position: relative;
+}
+
+.warning-form {
+  float: right;
+  position: absolute;
+  top: -23px;
+  right: 0px;
 }

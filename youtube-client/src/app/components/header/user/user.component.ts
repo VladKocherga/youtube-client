@@ -7,5 +7,13 @@ import AuthService from 'src/app/services/auth.service';
   styleUrls: ['./user.component.scss'],
 })
 export default class UserComponent {
-  constructor(public authService: AuthService) {}
+  public personMail: string = 'Your mail';
+
+  public isVisibleAdmin: boolean = false;
+
+  constructor(public authService: AuthService) {
+    authService.currentPersonMail.subscribe((mail: string): void => {
+      this.personMail = mail;
+    });
+  }
 }

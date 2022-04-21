@@ -15,6 +15,8 @@ import DateFilterPipe from './pipes/criteria-filter/criteria-filter';
 import UserComponent from './components/header/user/user.component';
 import DetailsComponent from './components/details/details.component';
 import AuthorizationComponent from './components/authorization/authorization.component';
+import RegistrationComponent from './components/registration/registration.component';
+import AdminComponent from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import AuthorizationComponent from './components/authorization/authorization.com
     DetailsComponent,
     DateFilterPipe,
     UserComponent,
+    RegistrationComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
