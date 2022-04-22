@@ -1,0 +1,116 @@
+<div class="auth-wrapper">
+  <form [formGroup]="cardForm" (ngSubmit)="createCard()">
+    <div class="auth-container">
+      <h2 class="auth-title">Create new card</h2>
+      <fieldset>
+        <legend class="login-text">Title</legend>
+        <div
+          *ngIf="cardForm.get('title')?.invalid && cardForm.get('title')?.touched"
+          class="warning-container-mail"
+        >
+          <p
+            *ngIf="cardForm.get('title')?.errors?.['required']"
+            class="warning-form"
+          >
+            Please enter a title.
+          </p>
+          <p
+            *ngIf="cardForm.get('title')?.errors?.['minlength']"
+            class="warning-form"
+          >
+            The title is too short.
+          </p>
+          <p
+            *ngIf="cardForm.get('title')?.errors?.['maxlength']"
+            class="warning-form"
+          >
+            The title is too long.
+          </p>
+        </div>
+        <input
+          type="text"
+          class="login-input"
+          formControlName="firstName"
+          formControlName="title"
+          [class.is-invalid]="cardForm.get('title')?.touched && cardForm.get('title')?.errors"
+        />
+      </fieldset>
+      <fieldset>
+        <legend class="login-text">Description</legend>
+        <div
+          *ngIf="cardForm.get('description')?.invalid && cardForm.get('description')?.touched"
+          class="warning-container-mail"
+        >
+          <p
+            *ngIf="cardForm.get('description')?.errors?.['maxlength']"
+            class="warning-form"
+          >
+            The description is too long
+          </p>
+        </div>
+        <input
+          type="text"
+          class="login-input"
+          formControlName="description"
+          [class.is-invalid]="cardForm.get('description')?.touched && cardForm.get('description')?.errors"
+        />
+      </fieldset>
+      <fieldset>
+        <legend class="login-text">img</legend>
+        <div
+          *ngIf="cardForm.get('img')?.invalid && cardForm.get('img')?.touched"
+          class="warning-container-mail"
+        >
+          <p
+            class="warning-form"
+            *ngIf="cardForm.get('img')?.errors?.['required']"
+          >
+            Please enter a link to the image
+          </p>
+          <p
+            class="warning-form"
+            *ngIf="cardForm.get('img')?.errors?.['pattern']"
+          >
+            The image link is invalid.
+          </p>
+        </div>
+        <input
+          type="text"
+          formControlName="img"
+          class="login-input"
+          [class.is-invalid]="cardForm.get('img')?.touched && cardForm.get('img')?.errors && cardForm.get('imgLink')?.touched"
+        />
+      </fieldset>
+      <fieldset>
+        <legend class="login-text">link video</legend>
+        <div
+          *ngIf="cardForm.get('videoLink')?.invalid && cardForm.get('videoLink')?.touched"
+          class="warning-container-mail"
+          >
+          <p
+            class="warning-form"
+            *ngIf="cardForm.get('videoLink')?.errors?.['required']"
+          >
+            Please enter a link to the video
+          </p>
+          <p
+            class="warning-form"
+            *ngIf="cardForm.get('videoLink')?.errors?.['pattern']"
+          >
+            The video link is invalid.
+          </p>
+        </div>
+        <input
+          type="text"
+          class="login-input"
+          formControlName="videoLink"
+          [class.is-invalid]="cardForm.get('videoLink')?.touched && cardForm.get('videoLink')?.errors"
+        />
+      </fieldset>
+    </div>
+    <button type="submit" class="submit-login" (click)="markAsTouched">
+      create card
+    </button>
+  </form>
+  <p class="card-create" *ngIf="isCardCreateVisibile">Card created</p>
+</div>
