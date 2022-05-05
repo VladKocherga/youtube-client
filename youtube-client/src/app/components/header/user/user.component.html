@@ -1,0 +1,12 @@
+<div class="person-container">
+  <p class="person-name">{{ personMail }}</p>
+  <img src="../../../../assets/svg/login.svg" alt="login" />
+  <img
+    *ngIf="this.authService.verificateLogin()"
+    alt="logout"
+    class="logout"
+    (click)="this.authService.logout()"
+    src="../../../../assets/svg/logout.svg"
+  />
+  <a class="admin" *ngIf = "this.authService.verificateLogin()" routerLink="/admin">Admin</a>
+</div>

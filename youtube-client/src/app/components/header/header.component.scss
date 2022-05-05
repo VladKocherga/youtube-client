@@ -1,0 +1,94 @@
+$main-color: #2f80ed;
+
+.header {
+  height: 205px;
+  width: 100%;
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .app-filter-criteria {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    color: black;
+    top: 145px;
+    font-size: 18px;
+    font-weight: bold;
+    animation-name: show;
+    animation-duration: 1.5s;
+  }
+
+  .search-pannel {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap: 20px;
+    align-items: center;
+    margin-top: -60px;
+
+    .logo {
+      background: url('../../../assets/svg/logo.svg') center;
+      width: 50px;
+      height: 50px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .search-video {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 30%;
+      height: 20px;
+      border-radius: 25px;
+      padding: 10px;
+
+      &:hover {
+        opacity: 0.5;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+    }
+
+    .search-button {
+      width: 100px;
+      height: 30px;
+      border-radius: 25px;
+      background-color: $main-color;
+      border: none;
+      color: white;
+
+      &:hover {
+        opacity: 0.5;
+        transition: 1s;
+        cursor: pointer;
+      }
+    }
+
+    .settings-button {
+      width: 60px;
+      height: 60px;
+      background: url('../../../assets/svg/search_settings.svg') no-repeat center;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+        transition: 1s;
+      }
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    margin-top: 150px;
+  }
+
+  100% {
+    margin-top: 0px;
+  }
+}

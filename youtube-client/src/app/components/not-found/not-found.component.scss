@@ -1,0 +1,11 @@
+.error-container {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

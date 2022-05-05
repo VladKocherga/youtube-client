@@ -1,0 +1,37 @@
+<div class="youtube-card" #youtubeCard>
+  <img
+    class="preview"
+    src="{{ item ? item.snippet.thumbnails.medium.url : '' }}"
+    alt="preview"
+  />
+  <div class="videos-statistics">
+    <div class="views">
+      <img
+        class="img-views"
+        src="../../../../assets/svg/viewed.svg"
+        alt="views"
+      />
+      <p class="views-count">{{ item ? item.statistics.viewCount : 'err' }}</p>
+    </div>
+    <div class="likes">
+      <img
+        src="../../../../assets/svg/liked.svg"
+        alt="liked"
+        class="img-likes"
+      />
+      <p class="likes-count">{{ item ? item.statistics.likeCount : 'err' }}</p>
+    </div>
+    <div class="comments">
+      <img
+        src="../../../../assets/svg/comments.svg"
+        alt="comments"
+        class="img-comments"
+       />
+      <p class="comments-count">
+        {{ item ? item.statistics.commentCount : '' }}
+      </p>
+    </div>
+  </div>
+  <div class="title-video">{{ item ? item.snippet.title : '' }}</div>
+  <button class="btn-more" [routerLink]="['/details', item?.id]">more</button>
+</div>
