@@ -4,8 +4,10 @@ export const enum DAYS {
   maxDay = 186,
 }
 
-export const SERVER_LINK =
-  'https://raw.githubusercontent.com/rolling-scopes-school/tasks/master/tasks/angular/response.json';
+export const YOUTUBE_SEARCH_URL =
+  'https://www.googleapis.com/youtube/v3/search';
+export const YOUTUBE_VIDEO_URL = 'https://www.googleapis.com/youtube/v3/videos';
+export const API_KEY = 'AIzaSyDsxqBSFJF9ldHWFB1HglzwABKQYsb-NYk';
 
 export const enum BORDERCOLOR {
   red = 'red',
@@ -28,3 +30,5 @@ export const PASSWORD_MIN_LENGTH: number = 8;
 export const CARD_TITLE_MIN_LENGTH: number = 3;
 export const CARD_TITLE_MAX_LENGTH: number = 20;
 export const CARD_DESCRIPTION_MAX_LENGTH: number = 255;
+export const MIN_SEARCH_LENGTH: number = 3;
+export const MAX_VIDEOS = 12;

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import ResponseInterceptor from './interceptors/response.interceptor';
 import AppRoutingModule from './app-routing.module';
 
 import AppComponent from './app.component';
@@ -17,6 +19,7 @@ import DetailsComponent from './components/details/details.component';
 import AuthorizationComponent from './components/authorization/authorization.component';
 import RegistrationComponent from './components/registration/registration.component';
 import AdminComponent from './components/admin/admin.component';
+import DataService from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -40,8 +43,17 @@ import AdminComponent from './components/admin/admin.component';
     AppRoutingModule,
     CommonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResponseInterceptor,
+      multi: true,
+    },
+    HttpClientModule,
+    DataService,
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { SERVER_LINK } from '../constants/constant';
+import { HttpClient } from '@angular/common/http';
+import {
+  MAX_VIDEOS,
+  YOUTUBE_SEARCH_URL,
+  YOUTUBE_VIDEO_URL,
+} from '../constants/constant';
 import { Item } from '../interfaces/search-item.model';
 import { IResponse } from '../interfaces/search-response.model';
 
@@ -8,8 +13,6 @@ import { IResponse } from '../interfaces/search-response.model';
   providedIn: 'root',
 })
 export default class DataService {
-  private videosData: Promise<Item[]> = this.getData();
-
   private search: BehaviorSubject<string> = new BehaviorSubject('');
 
   private isVideoContainer: BehaviorSubject<boolean> =
@@ -25,6 +28,10 @@ export default class DataService {
   public currentSortCriteria: Observable<string> =
     this.sortCriteria.asObservable();
 
+  public videoIds: string[] = [];
+
+  public videoData: Item[] | undefined;
+
   public setSearchWord(word: string): void {
     this.search.next(word);
   }
@@ -37,10 +44,27 @@ export default class DataService {
     this.isVideoContainer.next(visible);
   }
 
-  public getData(): Promise<Item[]> {
-    this.videosData = fetch(`${SERVER_LINK}`)
-      .then((response: Response) => response.json())
-      .then((data: IResponse) => data.items);
-    return this.videosData;
+  constructor(private readonly http: HttpClient) {}
+
+  public getVideoItems(): Observable<IResponse> {
+    const queryParams = [
+      'part=snippet,statistics',
+      `id=${this.videoIds.join()}`,
+    ];
+    return this.http.get<IResponse>(
+      `${YOUTUBE_VIDEO_URL}?${queryParams.join('&')}`
+    );
+  }
+
+  public getSearchApi(searchValue: string): Observable<IResponse> {
+    const queryParams = [
+      'part=snippet',
+      `maxResults=${MAX_VIDEOS}`,
+      `q=${searchValue}`,
+      'type=video',
+    ];
+    return this.http.get<IResponse>(
+      `${YOUTUBE_SEARCH_URL}?${queryParams.join('&')}`
+    );
   }
 }

@@ -6,9 +6,14 @@ export interface PageInfo {
 export interface Item {
   kind: string;
   etag: string;
-  id: string;
+  id: IID;
   snippet: ISnippet;
   statistics: IStatistics;
+}
+
+export interface IID {
+  kind: string;
+  videoId: string;
 }
 
 export interface ISnippet {

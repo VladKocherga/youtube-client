@@ -1,8 +1,8 @@
-<div class="search-container" *ngIf="isVisibleContainer">
+<div class="search-container" *ngIf="dataService.videoData">
   <div
     class="youtube-item"
     *ngFor="
-      let i of data
+      let i of dataService.videoData
         | keywordFilter: setWordsCriteria()
         | dateFilter: sortByCriteria()"
   >

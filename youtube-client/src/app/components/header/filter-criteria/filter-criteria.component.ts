@@ -9,7 +9,7 @@ import DataService from 'src/app/services/data.service';
 export default class FilterCriteriaComponent {
   constructor(private service: DataService) {}
 
-  public setSearch(word: string): void {
+  public set filterBySearchWord(word: string) {
     this.service.setSearchWord(word);
   }
 

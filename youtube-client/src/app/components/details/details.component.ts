@@ -23,14 +23,12 @@ export default class DetailsComponent implements OnInit, AfterViewChecked {
   @ViewChild('detailsContainer', { static: false })
   private detailsContainer: ElementRef = { nativeElement: '' };
 
-  private data: Item[] = [];
-
   public currentItem: Item | undefined;
 
   public itemId: string | null = '';
 
   constructor(
-    private service: DataService,
+    private dataService: DataService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -41,11 +39,11 @@ export default class DetailsComponent implements OnInit, AfterViewChecked {
   }
 
   public async getData(): Promise<void> {
-    this.data = await this.service.getData();
-    this.currentItem = this.data.find(
-      (el: Item): boolean => el.id === this.itemId
-    );
-    if (!this.currentItem) {
+    if (this.dataService.videoData) {
+      this.currentItem = this.dataService.videoData.find(
+        (el: Item): boolean => `${el.id}` === this.itemId
+      );
+    } else if (!this.currentItem) {
       this.router.navigate(['/error']);
     }
   }

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import FilterCriteriaComponent from './filter-criteria.component';
 
@@ -9,7 +10,7 @@ describe('FilterCriteriaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [FormsModule, HttpClientTestingModule],
       declarations: [FilterCriteriaComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(FilterCriteriaComponent);

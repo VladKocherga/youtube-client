@@ -64,6 +64,7 @@
 
           .description-text {
             text-align: justify;
+            font-size: 10px;
           }
         }
 
@@ -73,7 +74,6 @@
 
           .views,
           .likes,
-          .dislikes,
           .comments {
             position: relative;
             color: rgba(100, 54, 54, 0.918);
@@ -82,7 +82,6 @@
 
           .views::before,
           .likes::before,
-          .dislikes::before,
           .comments::before {
             content: '';
             height: 13px;
@@ -98,10 +97,6 @@
 
           .likes::before {
             background: url("../../../assets/svg/liked.svg") no-repeat;
-          }
-
-          .dislikes::before {
-            background: url("../../../assets/svg/dislike.svg") no-repeat;
           }
 
           .comments::before {

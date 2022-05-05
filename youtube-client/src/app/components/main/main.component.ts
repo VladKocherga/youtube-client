@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Item } from 'src/app/interfaces/search-item.model';
 import DataService from 'src/app/services/data.service';
 
 @Component({
@@ -8,21 +7,14 @@ import DataService from 'src/app/services/data.service';
   styleUrls: ['./main.component.scss'],
 })
 export default class SearchComponent {
-  public data: Item[] = [];
-
   public isVisibleContainer: boolean = false;
 
-  constructor(private dataService: DataService) {
+  constructor(public dataService: DataService) {
     this.dataService.currentContainerVisible.subscribe(
       (value: boolean): void => {
         this.isVisibleContainer = value;
       }
     );
-    this.getData();
-  }
-
-  public async getData(): Promise<void> {
-    this.data = await this.dataService.getData();
   }
 
   public setWordsCriteria(): string {
