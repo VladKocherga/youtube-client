@@ -8,5 +8,9 @@
     (click)="this.authService.logout()"
     src="../../../../assets/svg/logout.svg"
   />
-  <a class="admin" *ngIf = "this.authService.verificateLogin()" routerLink="/admin">Admin</a>
+  <a
+    class="admin"
+    *ngIf = "this.authService.verificateLogin()"
+    routerLink="/admin"
+  >Admin</a>
 </div>

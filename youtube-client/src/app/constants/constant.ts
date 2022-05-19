@@ -1,4 +1,6 @@
-export const enum DAYS {
+import { IUserCard } from '../interfaces/search-item.model';
+
+export const enum Days {
   minDay = 7,
   middleDay = 31,
   maxDay = 186,
@@ -9,12 +11,25 @@ export const YOUTUBE_SEARCH_URL =
 export const YOUTUBE_VIDEO_URL = 'https://www.googleapis.com/youtube/v3/videos';
 export const API_KEY = 'AIzaSyDsxqBSFJF9ldHWFB1HglzwABKQYsb-NYk';
 
-export const enum BORDERCOLOR {
+export const enum BorderColor {
   red = 'red',
   green = 'green',
   yellow = 'yellow',
   blue = 'blue',
 }
+
+export const enum CardsOperations {
+  setUserCards = '[youtube] Set user cards',
+  setYoutubeCards = '[youtube] Set youtube cards',
+}
+
+export const emptyUserCard: IUserCard = {
+  title: '',
+  description: '',
+  imgLink: '',
+  videoLink: '',
+  creatingDate: '',
+};
 
 export const EMAIL_PATTERN: string =
   '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';

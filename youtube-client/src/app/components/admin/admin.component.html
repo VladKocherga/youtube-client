@@ -1,5 +1,13 @@
 <div class="auth-wrapper">
-  <form [formGroup]="cardForm" (ngSubmit)="createCard()">
+  <form
+    [formGroup]="cardForm"
+    (ngSubmit)="createCard({
+      title: cardForm.get('title')?.value,
+      description: cardForm.get('description')?.value,
+      imgLink: cardForm.get('imgLink')?.value,
+      videoLink: cardForm.get('videoLink')?.value
+    })"
+  >
     <div class="auth-container">
       <h2 class="auth-title">Create new card</h2>
       <fieldset>
@@ -58,27 +66,27 @@
       <fieldset>
         <legend class="login-text">img</legend>
         <div
-          *ngIf="cardForm.get('img')?.invalid && cardForm.get('img')?.touched"
+          *ngIf="cardForm.get('imgLink')?.invalid && cardForm.get('imgLink')?.touched"
           class="warning-container-mail"
         >
           <p
             class="warning-form"
-            *ngIf="cardForm.get('img')?.errors?.['required']"
+            *ngIf="cardForm.get('imgLink')?.errors?.['required']"
           >
             Please enter a link to the image
           </p>
           <p
             class="warning-form"
-            *ngIf="cardForm.get('img')?.errors?.['pattern']"
+            *ngIf="cardForm.get('imgLink')?.errors?.['pattern']"
           >
             The image link is invalid.
           </p>
         </div>
         <input
           type="text"
-          formControlName="img"
+          formControlName="imgLink"
           class="login-input"
-          [class.is-invalid]="cardForm.get('img')?.touched && cardForm.get('img')?.errors && cardForm.get('imgLink')?.touched"
+          [class.is-invalid]="cardForm.get('imgLink')?.touched && cardForm.get('imgLink')?.errors && cardForm.get('imgLink')?.touched"
         />
       </fieldset>
       <fieldset>

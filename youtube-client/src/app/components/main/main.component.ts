@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { Item, IUserCard } from 'src/app/interfaces/search-item.model';
 import DataService from 'src/app/services/data.service';
+import { IStore } from 'src/app/store/youtube.interface';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +12,15 @@ import DataService from 'src/app/services/data.service';
 export default class SearchComponent {
   public isVisibleContainer: boolean = false;
 
-  constructor(public dataService: DataService) {
+  public videoData: Item[] = [];
+
+  public userVideosData: IUserCard[] = [];
+
+  constructor(public dataService: DataService, private store: Store) {
+    this.store.subscribe((state: IStore) => {
+      this.videoData = [...state.YoutubeState.youtubeCards];
+      this.userVideosData = JSON.parse(state.YoutubeState.userCards);
+    });
     this.dataService.currentContainerVisible.subscribe(
       (value: boolean): void => {
         this.isVisibleContainer = value;

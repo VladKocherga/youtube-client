@@ -8,7 +8,7 @@
   <div class="details-container" #detailsContainer>
     <div class = "arrow">
       <img
-        src="{{currentItem ? currentItem.snippet.thumbnails.high.url : ''}}"
+        src="{{currentYoutubeItem?.snippet?.thumbnails?.high?.url || currentUserItem?.imgLink}}"
         alt="img"
         class="preview-img"
       />
@@ -17,31 +17,31 @@
       <div class="about-video-wrapper">
         <div class="title-container">
           <div class="details-title">
-            {{ currentItem ? currentItem.snippet.title : 'err' }}
+            {{ currentYoutubeItem?.snippet?.title || currentUserItem?.title}}
           </div>
           <div class="details-date-publishing">
             {{
-              currentItem
-                ? (currentItem!.snippet.publishedAt | date: 'fullDate')
-                : ''
+              currentYoutubeItem
+                ? (currentYoutubeItem!.snippet.publishedAt | date: 'fullDate')
+                : currentUserItem?.creatingDate | date: 'fullDate'
             }}
           </div>
         </div>
         <div class="details-description">
           <h2 class="description-title">Description:</h2>
           <p class="description-text">
-            {{ currentItem ? currentItem.snippet.description : 'err' }}
+            {{ currentYoutubeItem?.snippet?.description || currentUserItem?.description }}
           </p>
         </div>
         <div class="video-statistics">
           <div class="views">
-            {{ currentItem ? currentItem.statistics.viewCount : 'err' }}
+            {{ currentYoutubeItem ? currentYoutubeItem.statistics.viewCount : '0' }}
           </div>
           <div class="likes">
-            {{ currentItem ? currentItem.statistics.likeCount : 'err' }}
+            {{ currentYoutubeItem ? currentYoutubeItem.statistics.likeCount : '0' }}
           </div>
           <div class="comments">
-            {{ currentItem ? currentItem.statistics.commentCount : 'err' }}
+            {{ currentYoutubeItem ? currentYoutubeItem.statistics.commentCount : '0' }}
           </div>
         </div>
       </div>

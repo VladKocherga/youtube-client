@@ -47,7 +47,7 @@ export default class DataService {
   constructor(private readonly http: HttpClient) {}
 
   public getVideoItems(): Observable<IResponse> {
-    const queryParams = [
+    const queryParams: string[] = [
       'part=snippet,statistics',
       `id=${this.videoIds.join()}`,
     ];
@@ -57,7 +57,7 @@ export default class DataService {
   }
 
   public getSearchApi(searchValue: string): Observable<IResponse> {
-    const queryParams = [
+    const queryParams: string[] = [
       'part=snippet',
       `maxResults=${MAX_VIDEOS}`,
       `q=${searchValue}`,

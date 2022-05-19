@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   { path: 'registration', component: RegistrationComponent },
   {
-    path: 'details/:id',
+    path: 'details/:id/:type',
     component: DetailsComponent,
     canActivate: [AuthorizationGuard],
   },

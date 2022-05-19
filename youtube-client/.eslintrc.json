@@ -1,11 +1,18 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": [
+    "projects/**/*",
+    "**/store/**"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "parserOptions": {
-        "project": ["tsconfig.json"],
+        "project": [
+          "tsconfig.json"
+        ],
         "createDefaultProgram": true
       },
       "extends": [
@@ -40,6 +47,11 @@
       ],
       "extends": [
         "plugin:@angular-eslint/template/recommended"
+      ]
+    },
+    {
+      "files": [
+        "*.ts"
       ]
     }
   ]

@@ -4,8 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import environment from 'src/environments/environment';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import ResponseInterceptor from './interceptors/response.interceptor';
 import AppRoutingModule from './app-routing.module';
+import YoutubeState from './store/youtube.state';
 
 import AppComponent from './app.component';
 import HeaderComponent from './components/header/header.component';
@@ -20,6 +24,7 @@ import AuthorizationComponent from './components/authorization/authorization.com
 import RegistrationComponent from './components/registration/registration.component';
 import AdminComponent from './components/admin/admin.component';
 import DataService from './services/data.service';
+import UserItemComponent from './components/main/user-item/user-item.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,7 @@ import DataService from './services/data.service';
     UserComponent,
     RegistrationComponent,
     AdminComponent,
+    UserItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,10 @@ import DataService from './services/data.service';
     CommonModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxsModule.forRoot([YoutubeState], {
+      developmentMode: !environment.production,
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
   providers: [
     {

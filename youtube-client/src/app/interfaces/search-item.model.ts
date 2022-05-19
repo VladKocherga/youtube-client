@@ -56,3 +56,12 @@ export interface IStatistics {
   favoriteCount: string;
   commentCount: string;
 }
+
+export interface IUserCard {
+  title: string;
+  description: string;
+  imgLink: string;
+  videoLink: string;
+  creatingDate?: string;
+  id?: string;
+}

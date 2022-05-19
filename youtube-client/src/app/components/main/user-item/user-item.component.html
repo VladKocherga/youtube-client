@@ -1,0 +1,9 @@
+<div class="youtube-card" #youtubeCard>
+  <img
+    class="preview"
+    src="{{ item ? item.imgLink : '' }}"
+    alt="preview"
+  />
+  <div class="title-video">{{ item ? item.title : '' }}</div>
+  <button class="btn-more" [routerLink]="['/details', item?.id, 'user']">more</button>
+</div>

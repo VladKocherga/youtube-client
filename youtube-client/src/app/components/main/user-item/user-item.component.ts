@@ -1,26 +1,26 @@
 import {
+  AfterViewChecked,
   Component,
   ElementRef,
-  ViewChild,
-  AfterViewChecked,
   Input,
+  ViewChild,
 } from '@angular/core';
-import { Item } from 'src/app/interfaces/search-item.model';
+import { IUserCard } from 'src/app/interfaces/search-item.model';
 import { generateBorderColor } from 'src/app/utilities/utils';
 
 @Component({
-  selector: 'app-search-item',
-  templateUrl: './search-item.component.html',
-  styleUrls: ['./search-item.component.scss'],
+  selector: 'app-user-item',
+  templateUrl: './user-item.component.html',
+  styleUrls: ['./user-item.component.scss'],
 })
-export default class SearchItemComponent implements AfterViewChecked {
+export default class UserItemComponent implements AfterViewChecked {
   @ViewChild('youtubeCard', { static: false })
   public youtubeCard: ElementRef = { nativeElement: '' };
 
-  @Input() item!: Item;
+  @Input() item!: IUserCard;
 
   public ngAfterViewChecked(): void {
-    const publicationDate: string = this.item?.snippet.publishedAt;
+    const publicationDate: string | undefined = this.item?.creatingDate;
     this.youtubeCard.nativeElement.style.borderBottomColor =
       generateBorderColor(publicationDate);
   }

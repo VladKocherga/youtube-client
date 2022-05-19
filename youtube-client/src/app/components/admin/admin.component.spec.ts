@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
 
+import { NgxsModule } from '@ngxs/store';
+import YoutubeState from 'src/app/store/youtube.state';
+import { RouterTestingModule } from '@angular/router/testing';
+import environment from 'src/environments/environment';
 import AdminComponent from './admin.component';
 
 describe('AdminComponent', () => {
@@ -11,7 +14,13 @@ describe('AdminComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminComponent],
-      imports: [RouterTestingModule.withRoutes([]), ReactiveFormsModule],
+      imports: [
+        ReactiveFormsModule,
+        NgxsModule.forRoot([YoutubeState], {
+          developmentMode: !environment.production,
+        }),
+        RouterTestingModule.withRoutes([]),
+      ],
     }).compileComponents();
     fixture = TestBed.createComponent(AdminComponent);
     component = fixture.componentInstance;

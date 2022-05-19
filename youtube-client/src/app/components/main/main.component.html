@@ -2,10 +2,13 @@
   <div
     class="youtube-item"
     *ngFor="
-      let i of dataService.videoData
+      let i of videoData
         | keywordFilter: setWordsCriteria()
         | dateFilter: sortByCriteria()"
   >
     <app-search-item class="search-container" [item]="i"></app-search-item>
+  </div>
+  <div class="youtube-item" *ngFor="let a of this.userVideosData">
+    <app-user-item class="search-container" [item]="a"></app-user-item>
   </div>
 </div>
