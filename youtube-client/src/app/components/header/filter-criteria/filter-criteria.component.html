@@ -1,0 +1,12 @@
+<p>Sorting by:</p>
+<p class="criteria-filter" (click)="setSortCriteria('dateMin')">date</p>
+<p class="criteria-filter" (click)="setSortCriteria('viewMin')">
+  count of views
+</p>
+<p>by word or sentance</p>
+<input
+  type="text"
+  placeholder="write"
+  [(ngModel)]="filterBySearchWord"
+  class="criteria-search"
+/>

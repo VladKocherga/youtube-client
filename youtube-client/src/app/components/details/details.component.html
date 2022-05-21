@@ -1,0 +1,50 @@
+<div class="details-wrapper">
+  <img
+    src="../../../assets/svg/back.svg"
+    routerLink="/"
+    alt="back"
+    class="arrow-left"
+  />
+  <div class="details-container" #detailsContainer>
+    <div class = "arrow">
+      <img
+        src="{{currentYoutubeItem?.snippet?.thumbnails?.high?.url || currentUserItem?.imgLink}}"
+        alt="img"
+        class="preview-img"
+      />
+    </div>
+    <div class="about-video">
+      <div class="about-video-wrapper">
+        <div class="title-container">
+          <div class="details-title">
+            {{ currentYoutubeItem?.snippet?.title || currentUserItem?.title}}
+          </div>
+          <div class="details-date-publishing">
+            {{
+              currentYoutubeItem
+                ? (currentYoutubeItem!.snippet.publishedAt | date: 'fullDate')
+                : currentUserItem?.creatingDate | date: 'fullDate'
+            }}
+          </div>
+        </div>
+        <div class="details-description">
+          <h2 class="description-title">Description:</h2>
+          <p class="description-text">
+            {{ currentYoutubeItem?.snippet?.description || currentUserItem?.description }}
+          </p>
+        </div>
+        <div class="video-statistics">
+          <div class="views">
+            {{ currentYoutubeItem ? currentYoutubeItem.statistics.viewCount : '0' }}
+          </div>
+          <div class="likes">
+            {{ currentYoutubeItem ? currentYoutubeItem.statistics.likeCount : '0' }}
+          </div>
+          <div class="comments">
+            {{ currentYoutubeItem ? currentYoutubeItem.statistics.commentCount : '0' }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

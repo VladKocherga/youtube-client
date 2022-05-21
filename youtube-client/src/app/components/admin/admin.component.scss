@@ -1,0 +1,74 @@
+.auth-wrapper {
+  width: 700px;
+  height: 700px;
+  background-color: grey;
+  margin: 50px auto;
+
+  .submit-login {
+    float: right;
+    margin-right: 50px;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(113, 113, 219);
+    border: none;
+
+    &:hover {
+      transition: 0.5s;
+      background-color: rgb(81, 81, 231);
+      cursor: pointer;
+    }
+  }
+
+  .auth-container {
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+
+    .auth-title {
+      font-size: 42px;
+      line-height: 150px;
+    }
+
+    .login-text {
+      line-height: 50px;
+      font-size: 22px;
+      color: black;
+    }
+
+    .login-input {
+      padding: 10px;
+      width: 100%;
+    }
+  }
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid green;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid red;
+}
+
+.warning-form {
+  color: rgb(165, 33, 33);
+  float: right;
+  position: absolute;
+  top: -23px;
+  right: 0px;
+}
+
+.card-create {
+  width: 100px;
+  color: greenyellow;
+  margin: 10px auto;
+}
+
+.warning-container-mail {
+  position: relative;
+}

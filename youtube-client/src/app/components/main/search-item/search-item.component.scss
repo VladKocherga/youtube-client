@@ -1,0 +1,42 @@
+.youtube-card {
+  width: 200px;
+  height: 300px;
+  background-color: grey;
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+  font-weight: bold;
+  border-bottom: 15px solid grey;
+
+  .videos-statistics {
+    display: flex;
+    column-gap: 10px;
+    color: rgba(100, 54, 54, 0.918);
+  }
+
+  .preview {
+    width: 200px;
+    height: 130px;
+  }
+
+  .title-video {
+    width: 100%;
+    font-size: 19px;
+    letter-spacing: 2px;
+  }
+
+  .btn-more {
+    border: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 25px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 1s;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="search-pannel">
+    <div class="logo" routerLink="/"></div>
+    <input
+      type="text"
+      class="search-video"
+      placeholder="What are you want to find out?"
+      (input)="getSearchedVideos()"
+      [(ngModel)]="searchValue"
+    />
+    <div
+      class="settings-button"
+      (click)="isVisibleFilterContainer = !isVisibleFilterContainer"
+    >
+    </div>
+    <app-user></app-user>
+  </div>
+  <div class="person-panel"></div>
+  <app-filter-criteria
+    *ngIf="isVisibleFilterContainer"
+    class="app-filter-criteria"
+  >
+  </app-filter-criteria>
+</header>
